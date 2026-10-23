@@ -12,7 +12,7 @@ import java.net.Socket;
 import java.util.Scanner;
 
 public class Client {
-    static final String IP_SERVEUR = "127.0.0.1"; // adresse IP de la machine serveur
+    static final String IP_SERVEUR = "127.0.0.1";
     static final int PORT = 1234;
 
     // nombre (négatif ou décimal possible) * nombre
@@ -37,7 +37,7 @@ public class Client {
             Scanner sc = new Scanner(System.in);
 
             while (true) {
-                System.out.print("Entrez une multiplication (ex: 55 * 25) ou 'fin' : ");
+                System.out.print("Entrez une multiplication ou 'fin' : ");
                 String saisie = sc.nextLine().trim();
 
                 if (saisie.equalsIgnoreCase("fin")) {
@@ -45,13 +45,13 @@ public class Client {
                     break;
                 }
 
-                if (!saisie.matches(SYNTAXE)) {          // validation AVANT l'envoi
+                if (!saisie.matches(SYNTAXE)) {
                     System.out.println("Syntaxe incorrecte. Format attendu : nombre * nombre");
                     continue;
                 }
 
-                pw.println(saisie);                      // envoi de l'opération
-                String resultat = br.readLine();         // lecture du résultat
+                pw.println(saisie);
+                String resultat = br.readLine();
                 System.out.println("Résultat : " + resultat);
             }
 
